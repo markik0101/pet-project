@@ -1,8 +1,11 @@
 import './app.less'
+import React from 'react'
 
 const App = () => {
 	return (
-		<div>Start Project</div>
+		<div>
+			<h1>Start Project</h1>
+		</div>
 	)
 }
 
