@@ -17,8 +17,8 @@ const PostsPage = () => {
 			<div className="posts">
 				{
 					posts.map((post) => (
-						<Link to="/" className="black">
-							<div key={post.id}><li>{post.title}</li></div>
+						<Link key={post.id} to={`/posts/${post.id}`} className="black">
+							<li>{post.title}</li>
 						</Link>
 					))
 				}
