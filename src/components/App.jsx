@@ -1,13 +1,21 @@
 import './app.less'
 import React from 'react'
-import Counter from './Counter.jsx'
+import {Routes, Route} from 'react-router-dom'
+import Layout from './Layout.jsx'
+import HomePage from '../pages/HomePage.jsx'
+import PostsPage from '../pages/PostsPage.jsx'
+import AboutPage from '../pages/AboutPage.jsx'
 
 const App = () => {
 	return (
 		<div>
-			<h1>Start Project</h1>
-			<p>this is react project</p>
-			<Counter />
+			<Routes>
+				<Route path="/" element={<Layout />}>
+					<Route index element={<HomePage />}></Route>
+					<Route path="posts" element={<PostsPage />}></Route>
+					<Route path="about" element={<AboutPage />}></Route>
+				</Route>
+			</Routes>
 		</div>
 	)
 }
