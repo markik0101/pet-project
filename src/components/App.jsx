@@ -6,6 +6,7 @@ import HomePage from '../pages/HomePage.jsx'
 import PostsPage from '../pages/PostsPage.jsx'
 import AboutPage from '../pages/AboutPage.jsx'
 import SinglePage from '../pages/SinglePage.jsx'
+import NotFoundPage from '../pages/NotFoundPage.jsx'
 
 const App = () => {
 	return (
@@ -16,6 +17,7 @@ const App = () => {
 					<Route path="posts" element={<PostsPage />}></Route>
 					<Route path='posts/:id' element={<SinglePage />}></Route>
 					<Route path="about" element={<AboutPage />}></Route>
+					<Route path="*" element={<NotFoundPage />}></Route>
 				</Route>
 			</Routes>
 		</div>
