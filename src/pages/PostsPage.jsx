@@ -1,17 +1,20 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {Link, useSearchParams} from 'react-router-dom'
 import PostsSearch from '../components/PostsSearch.jsx'
+import {useDispatch, useSelector} from 'react-redux'
+import {getPosts} from '../components/actions/posts.js'
 
 const PostsPage = () => {
-	const [posts, setPosts] = useState([])
+	const dispatch = useDispatch()
+	const posts = useSelector(state => state.post.posts)
+
 	const [searchParams, setSearchParams] = useSearchParams()
 
 	const postQuery = searchParams.get('post') || ''
 
+
 	useEffect(() => {
-		fetch('https://jsonplaceholder.typicode.com/posts')
-			.then(response => response.json())
-			.then(data => setPosts(data))
+		dispatch(getPosts())
 	}, [])
 
 	return (
@@ -26,11 +29,12 @@ const PostsPage = () => {
 						.filter(
 							post => post.title.includes(postQuery)
 						)
-						.map((post) => (
+						.map((post) => 
 							<Link key={post.id} to={`/posts/${post.id}`} className="black">
 								<li>{post.title}</li>
 							</Link>
-						))
+
+						)
 				}
 			</div>
 		</div>

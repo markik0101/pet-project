@@ -18,14 +18,16 @@ const PostsSearch = ({postQuery, setSearchParams}) => {
 	}
 
 	return (
-		<form autoComplete='off' onSubmit={handleSubmit}>
+		<form autoComplete='off' onSubmit={handleSubmit} className="form">
 			<input 
 				type="search" 
 				name="search" 
 				value={search} 
 				onChange={e => setSearch(e.target.value)}
+				className="input-search"
+				placeholder="Search"
 			/>
-			<input type="submit" value="Search" />
+			<input type="submit" value="Search" className="sub-btn" />
 		</form>
 	)
 }
