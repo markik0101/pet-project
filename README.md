@@ -1,1 +1,1 @@
-My pet project with React Redux and React-Router
+My pet project with React Redux React-Router and Webpack
