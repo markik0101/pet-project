@@ -1,1 +1,1 @@
-this project I creating for testing git
+My pet project with React Redux and React-Router
