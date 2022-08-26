@@ -1,8 +1,13 @@
 import React, {useState} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {setSearch} from '../reducers/postReducer.js'
 
 const PostsSearch = ({postQuery, setSearchParams}) => {
 
-	const [search, setSearch] = useState(postQuery)
+	// const [search, setSearch] = useState(postQuery)
+
+	const dispatch = useDispatch()
+	const search = useSelector(state => state.post.search)
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -23,7 +28,7 @@ const PostsSearch = ({postQuery, setSearchParams}) => {
 				type="search" 
 				name="search" 
 				value={search} 
-				onChange={e => setSearch(e.target.value)}
+				onChange={e => dispatch(setSearch(e.target.value))}
 				className="input-search"
 				placeholder="Search"
 			/>
